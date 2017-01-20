@@ -1,4 +1,4 @@
-package com.tiy.games.com.tiy.games.mastermind;
+package mastermind;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,13 +1,12 @@
 package com.tiy.games;
 
-import com.tiy.games.com.tiy.games.mastermind.ColorCombination;
-import com.tiy.games.com.tiy.games.mastermind.MastermindColor;
+import mastermind.ColorCombination;
+import mastermind.MastermindColor;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashSet;
-import java.util.List;
 
 import static org.junit.Assert.*;
 

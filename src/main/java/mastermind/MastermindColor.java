@@ -1,4 +1,4 @@
-package com.tiy.games.com.tiy.games.mastermind;
+package mastermind;
 
 /**
  * Created by dbash on 1/19/2017.

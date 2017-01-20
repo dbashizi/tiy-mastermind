@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TIYMastermindApp">
+<head>
+    <meta charset="UTF-8">
+    <title>TIY Mastermind</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/mastermind-controllers.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mastermind.css">
+</head>
+<body ng-controller="GameController">
+
+<div class="add-border">
+    <h1>Welcome to Mastermind!</h1>
+
+    <div class="guess-row">
+        <div class="pin color-blue"></div>
+        <div class="pin color-navy"></div>
+        <div class="pin color-yellow"></div>
+        <div class="pin color-red"></div>
+    </div>
+
+    <div class="guess-row">
+        <div class="pin color-blue"></div>
+        <div class="pin color-yellow"></div>
+        <div class="pin color-black"></div>
+        <div class="pin color-navy"></div>
+    </div>
+</div>
+
+</body>
+</html>
