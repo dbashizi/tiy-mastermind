@@ -12,8 +12,8 @@
 .pin {
     border-radius: 50%;
     border: 1px solid none;
-    width: 1em;
-    height: 1em;
+    width: 2em;
+    height: 2em;
     text-align: center;
     float: left;
     padding: .5em;
@@ -41,13 +41,13 @@
 }
 
 .color-black {
-    background-color: red;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 .color-purple {
-    background-color: red;
-    color: purple;
+    background-color: purple;
+    color: white;
 }
 
 .guess-row {
