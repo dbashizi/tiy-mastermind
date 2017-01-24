@@ -13,6 +13,57 @@
     <h1>Welcome to Mastermind!</h1>
 
     <div class="guess-row">
+        <input type="button" ng-click="testFunction()" value="Guess">
+    </div>
+
+    <div class="guess-row">
+        <div class="guess">
+            <select ng-model="userGuess.color1">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <div class="guess">
+            <select ng-model="userGuess.color2">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <div class="guess">
+            <select ng-model="userGuess.color3">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <div class="guess">
+            <select ng-model="userGuess.color4">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="guess-row">
         <div class="pin color-blue"></div>
         <div class="pin color-navy"></div>
         <div class="pin color-yellow"></div>
