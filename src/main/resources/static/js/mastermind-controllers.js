@@ -9,4 +9,3 @@ angular.module('TIYMastermindApp', [])
 
         $scope.userGuess = {};
     });
-
