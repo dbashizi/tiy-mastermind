@@ -15,7 +15,13 @@ public class MastermindController {
     @RequestMapping(path = "/mastermind", method = RequestMethod.GET)
     public String todos(Model model, HttpSession session) {
         // start a new game by putting a new random color combination in the session
+        session.setAttribute("game-board", null);
         session.setAttribute("computer-combo", ColorCombination.getRandomUniqueCombination());
         return "mastermind";
+    }
+
+    @RequestMapping(path = "/drag", method = RequestMethod.GET)
+    public String drag(Model model, HttpSession session) {
+        return "drag";
     }
 }

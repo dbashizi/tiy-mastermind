@@ -52,6 +52,7 @@ public class ColorCombination {
             ColorMatchingResult result = new ColorMatchingResult(false, false);
             if (colors.get(colorIndex) == target.getColors().get(colorIndex)) {
                 result.setPlacementMatches(true);
+                result.setColorMatches(true);
                 matchingResults.add(result);
             } else if (uniqueColors.contains(target.getColors().get(colorIndex))) {
                 result.setColorMatches(true);

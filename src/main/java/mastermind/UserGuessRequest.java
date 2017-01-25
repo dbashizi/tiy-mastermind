@@ -1,5 +1,7 @@
 package mastermind;
 
+import java.util.List;
+
 /**
  * Created by dbash on 1/24/2017.
  */
@@ -8,12 +10,24 @@ public class UserGuessRequest {
     private String color2;
     private String color3;
     private String color4;
+    private List<ColorMatchingResult> matchingResults;
+
+    public UserGuessRequest() {
+    }
 
     public UserGuessRequest(String color1, String color2, String color3, String color4) {
         this.color1 = color1;
         this.color2 = color2;
         this.color3 = color3;
         this.color4 = color4;
+    }
+
+    public List<ColorMatchingResult> getMatchingResults() {
+        return matchingResults;
+    }
+
+    public void setMatchingResults(List<ColorMatchingResult> matchingResults) {
+        this.matchingResults = matchingResults;
     }
 
     public String getColor1() {

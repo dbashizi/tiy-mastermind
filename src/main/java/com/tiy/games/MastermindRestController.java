@@ -1,9 +1,6 @@
 package com.tiy.games;
 
-import mastermind.ColorCombination;
-import mastermind.ColorMatchingResult;
-import mastermind.MastermindColor;
-import mastermind.UserGuessRequest;
+import mastermind.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,18 +16,21 @@ import java.util.List;
  */
 @RestController
 public class MastermindRestController {
+
     @RequestMapping(path = "/get-random-color-combination.json", method = RequestMethod.GET)
     public ColorCombination getRandomColorCombination() {
         return ColorCombination.getRandomUniqueCombination();
     }
 
     @RequestMapping(path = "/submit-user-guess.json", method = RequestMethod.POST)
-    public List<ColorMatchingResult> submitUserGuess(HttpSession session, @RequestBody UserGuessRequest userGuessRequest) {
-        ColorCombination computerCombo = (ColorCombination)session.getAttribute("computer-combo");
-        if (computerCombo == null) {
-            computerCombo = ColorCombination.getRandomUniqueCombination();
-            session.setAttribute("computer-combo", computerCombo);
+    public GameBoard submitUserGuess(HttpSession session, @RequestBody UserGuessRequest userGuessRequest) {
+        GameBoard gameBoard = (GameBoard)session.getAttribute("game-board");
+        if (gameBoard == null) {
+            ColorCombination computerCombo = ColorCombination.getRandomUniqueCombination();
+            gameBoard = new GameBoard(computerCombo);
+            session.setAttribute("game-board", gameBoard);
         }
+
         List<MastermindColor> userColors = new ArrayList<MastermindColor>();
         userColors.add(MastermindColor.valueOf(userGuessRequest.getColor1().toUpperCase()));
         userColors.add(MastermindColor.valueOf(userGuessRequest.getColor2().toUpperCase()));
@@ -39,9 +39,10 @@ public class MastermindRestController {
 
         ColorCombination userColorCombo = new ColorCombination(userColors);
 
-        return computerCombo.compare(userColorCombo);
+        List<ColorMatchingResult> matchingResults = gameBoard.getComputerCombo().compare(userColorCombo);
+        userGuessRequest.setMatchingResults(matchingResults);
+        gameBoard.getUserGuesses().add(userGuessRequest);
+
+        return gameBoard;
     }
-
-
-
 }
