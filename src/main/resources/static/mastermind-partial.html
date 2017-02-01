@@ -1,0 +1,125 @@
+<div>
+    <h1>Welcome to Mastermind!</h1>
+
+    <div class="game-row">
+        <div class="guess-row">
+            <div class="guess">
+                <input type="button" ng-click="sendUserGuess()" value="Guess">
+            </div>
+            <div class="guess">
+                <input type="button" ng-click="testFunction()" value="Test">
+            </div>
+        </div>
+    </div>
+
+    <div class="game-row">
+        <div class="guess-row">
+            <div data-drag="true" jqyoui-draggable="{animate: true}" class="pin color-white"></div>
+            <div class="pin color-red"></div>
+            <div class="pin color-blue"></div>
+            <!--<div class="pin color-purple"></div>-->
+            <div class="pin color-pink"></div>
+            <div class="pin color-yellow"></div>
+            <div class="pin color-green"></div>
+            <!--<div class="pin color-navy"></div>-->
+            <!--<div class="pin color-silver"></div>-->
+            <div class="pin color-black"></div>
+        </div>
+    </div>
+
+    <div class="game-row">
+        <div class="guess-row">
+            <div data-drop="true" jqyoui-droppable="{beforeDrop: 'beforeDrop'}" class="pin color-placeholder"></div>
+            <div data-drop="true" jqyoui-droppable="{beforeDrop: 'beforeDrop', onDrop: 'onDrop'}" class="pin color-placeholder"></div>
+            <div class="pin color-placeholder"></div>
+            <div class="pin color-placeholder"></div>
+        </div>
+    </div>
+
+    <!--
+        <div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="btn btn-primary" data-drag="true" ng-model="list1" jqyoui-draggable="{animate: true}" ng-hide="!list1.title">{{list1.title}}</div>
+                </div>
+                <div class="span6">
+                    <div class="thumbnail" data-drop="true" ng-model="list2" jqyoui-droppable="{beforeDrop: 'beforeDrop'}" ng-bind="list2.title ? 'Dropped successfully..!' : 'Drop here...'"></div>
+                </div>
+            </div>
+        </div>
+    -->
+
+    <div style="float: left; clear: both;">
+        <div class="row-fluid">
+            <div class="span6" style="float: left; clear: both;">
+                <div data-drag="true" jqyoui-draggable="{animate: true}">something</div>
+            </div>
+            <div class="span6"">
+            <!--<div data-drop="true" jqyoui-droppable="{beforeDrop: 'beforeDrop'}" class="add-border" style="height: 200px; width: 200px;"></div>-->
+            <div class="pin color-placeholder"></div>
+        </div>
+    </div>
+</div>
+
+<div class="game-row">
+    <div class="guess-row">
+        <div class="guess">
+            <select ng-model="userGuess.color1">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <div class="guess">
+            <select ng-model="userGuess.color2">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <div class="guess">
+            <select ng-model="userGuess.color3">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+        <div class="guess">
+            <select ng-model="userGuess.color4">
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="pink">Pink</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="game-row" ng-repeat="userGuess in gameBoard.userGuesses">
+    <div class="guess-row">
+        <div class="pin" ng-class="'color-' + userGuess.color1"></div>
+        <div class="pin" ng-class="'color-' + userGuess.color2"></div>
+        <div class="pin" ng-class="'color-' + userGuess.color3"></div>
+        <div class="pin" ng-class="'color-' + userGuess.color4"></div>
+        <div class="result-row">
+            <div class="result" ng-class="'color-' + matchingResult.statusColor" ng-repeat="matchingResult in userGuess.matchingResults"></div>
+        </div>
+    </div>
+</div>
+
+</div>

@@ -2,16 +2,58 @@
 <html lang="en" ng-app="testApp">
 <head>
     <meta charset="UTF-8">
-    <title>TIY Mastermind</title>
+    <title>AngularJS Routing Baseline</title>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/routing-test.js"></script>
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- for mastermind -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="js/angular-drop.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
+    <script src="js/mastermind-controllers.js"></script>
     <link rel="stylesheet" type="text/css" href="css/mastermind.css">
+    <!-- end for mastermind -->
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/test-styles.css">
+
 </head>
 <body ng-controller="testController">
 
-<h1>{{testVar}}</h1>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Angular Routing Baseline</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#/">Go Home</a>
+            </li>
+            <li>
+                <a href="#test2">Go to Test 2</a>
+            </li>
+            <li>
+                <a href="#test3">Go to Test 3</a>
+            </li>
+            <li>
+                <a href="#mm">Play Mastermind</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="test-title">
+    <h1>{{testVar}}</h1>
+    <h2>{{testGlobalValue}}</h2>
+    <ul>
+        <li ng-repeat="testItem in testItemList">
+            {{testItem.firstName}} {{testItem.lastName}} is a {{testItem.profession}}
+        </li>
+    </ul>
+</div>
 
 <div ng-view></div>
 
