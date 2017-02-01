@@ -41,6 +41,19 @@ angular.module('TIYMastermindApp', ['ngDragDrop', 'ui.bootstrap'])
 
       $scope.list1 = {title: 'Drag and Drop with default confirmation'};
       $scope.list2 = {};
+
+      $scope.onDrop = function(event) {
+        console.log("in onDrop() " + event.clientX);
+        for (var propertyName in event) {
+            console.log("***** " + propertyName);
+        }
+
+        for (var propertyName in event.target) {
+            console.log("###### " + propertyName);
+            console.log("       " + event.target[propertyName]);
+        }
+      }
+
       $scope.beforeDrop = function() {
         var deferred = $q.defer();
         if (confirm('Are you sure???')) {
