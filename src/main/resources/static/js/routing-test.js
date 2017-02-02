@@ -34,9 +34,65 @@ testApp.config(function($routeProvider) {
         })
 });
 
-testApp.controller('controller1', function($scope) {
+testApp.controller('controller1', function($scope, $location, $rootScope) {
     console.log("initializing controller 1 ...");
-    $scope.testItemList = ["Simple1", "Simple2", "Simple3"];
+
+    $scope.getPersonDetails = function(lastName) {
+        console.log("in getPersonDetails() " + lastName);
+        $rootScope.lastNameSelected = lastName;
+        $location.path("/test3");
+    }
+
+    $scope.getFriends = function(lastName) {
+        $scope.selectedPersonName = lastName;
+
+        if (lastName == "Kirk") {
+            $scope.attendeeList = [
+                {
+                    "firstName": "James",
+                    "lastName" : "MacAdoo"
+                },
+                {
+                    "firstName": "Mary",
+                    "lastName" : "Cooper"
+                }
+            ];
+        } else if (lastName == "Doe") {
+            $scope.attendeeList = [
+                {
+                    "firstName": "Carrie",
+                    "lastName" : "Fisher"
+                },
+                {
+                    "firstName": "Harrison",
+                    "lastName" : "Ford"
+                },
+                {
+                    "firstName": "Donald",
+                    "lastName" : "Trump"
+                }
+            ];
+
+        } else if (lastName == "Harden") {
+            $scope.attendeeList = [
+                {
+                    "firstName": "Kevin",
+                    "lastName" : "Durant"
+                },
+                {
+                    "firstName": "LeBron",
+                    "lastName" : "James"
+                },
+                {
+                    "firstName": "Russell",
+                    "lastName" : "Westbrook"
+                }
+            ];
+
+        } else {
+            $scope.attendeeList = [];
+        }
+    }
 });
 
 testApp.controller('controller2', function($scope, $rootScope) {
@@ -45,8 +101,20 @@ testApp.controller('controller2', function($scope, $rootScope) {
     $rootScope.testGlobalValue = $scope.testGlobalValue;
 });
 
-testApp.controller('controller3', function($scope) {
+testApp.controller('controller3', function($scope, $rootScope) {
     console.log("initializing controller 3 ...");
+
+    if ($rootScope.lastNameSelected) {
+        $scope.lastName = $rootScope.lastNameSelected;
+
+        // this is the kind of call you would make to get the details
+        // of the person with this lastName from an endpoint
+//        $http.get("/get-person-details.json?lastName=" + lastName)
+
+        $rootScope.lastNameSelected = null;
+    } else {
+        $scope.lastName = "No Person Selected";
+    }
 });
 
 testApp.controller('spaController1', function($scope, $rootScope, $location) {
@@ -93,22 +161,26 @@ testApp.controller('testController', function($scope) {
         {
             "firstName": "James",
              "lastName": "Kirk",
-             "profession": "Starship Captain"
+             "profession": "Starship Captain",
+             "numFriends": 12
         },
         {
             "firstName": "Jane",
              "lastName": "Doe",
-             "profession": "Lost Person"
+             "profession": "Lost Person",
+             "numFriends": 7
         },
         {
             "firstName": "James",
              "lastName": "Harden",
-             "profession": "MVP Candidate"
+             "profession": "MVP Candidate",
+             "numFriends": 11
         },
         {
             "firstName": "Jean-Luc",
              "lastName": "Picard",
-             "profession": "Starship Captain"
+             "profession": "Starship Captain",
+             "numFriends": 8
         }
     ];
 

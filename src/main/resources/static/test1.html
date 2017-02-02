@@ -1,7 +1,28 @@
-<h2>this is test1.html</h2>
+<div class="">
 
-<ul>
-    <li ng-repeat="listItem in testItemList">
-        {{listItem}}
-    </li>
-</ul>
+    <div class="event-list">
+        <h1>People List</h1>
+        <h3>Select a person to see their friends</h3>
+        <ul class="list-group">
+            <li ng-click="getFriends(testItem.lastName)"
+                class="list-group-item"
+                ng-repeat="testItem in testItemList">
+                {{testItem.firstName}} {{testItem.lastName}} is a {{testItem.profession}}
+                <span class="badge">{{testItem.numFriends}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="attendee-list">
+        <h1>Friend List</h1>
+        <p ng-if="!attendeeList">Please select a person</p>
+        <h3 ng-if="attendeeList">Here are the friends for {{selectedPersonName}}</h3>
+        <ul class="list-group">
+            <li ng-click="getPersonDetails(attendee.lastName)"
+                class="list-group-item"
+                ng-repeat="attendee in attendeeList">
+                {{attendee.firstName}} {{attendee.lastName}}
+            </li>
+        </ul>
+    </div>
+</div>
