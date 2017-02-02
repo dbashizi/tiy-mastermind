@@ -7,15 +7,6 @@
     <script src="js/angular-route.min.js"></script>
     <script src="js/routing-test.js"></script>
 
-    <!-- for mastermind -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-    <script src="js/angular-drop.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
-    <script src="js/mastermind-controllers.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/mastermind.css">
-    <!-- end for mastermind -->
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -24,6 +15,7 @@
 </head>
 <body ng-controller="testController">
 
+<!-- Menu Structure -->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -60,20 +52,7 @@
     </div>
 </nav>
 
-
-<!--
-<div class="test-title">
-
-    <h1>{{testVar}}</h1>
-    <h2>{{testGlobalValue}}</h2>
-    <ul>
-        <li ng-repeat="testItem in testItemList">
-            {{testItem.firstName}} {{testItem.lastName}} is a {{testItem.profession}}
-        </li>
-    </ul>
-</div>
--->
-
+<!-- This is where my partials will go -->
 <div ng-view></div>
 
 </body>
